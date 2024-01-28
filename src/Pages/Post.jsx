@@ -11,7 +11,8 @@ export default function Post() {
     const posts = useSelector((state) => state.dataReducer.data)
     const { slug } = useParams();
     const navigate = useNavigate();
-    // console.log(post);
+    console.log(post);
+    // console.log(post.featuredImage);
     // console.log(slug);
 
     const userData = useSelector((state) => state.authReducer.userData);
@@ -25,12 +26,16 @@ export default function Post() {
         if (slug) {
             if(posts && posts.length > 0){
                 console.log(posts);
-                posts.map((post) => {post.title===slug ? setPost(post) : null})
-                if(post==null){
+                posts.map((post) => {
+                    if(post.title === slug){
+                        setPost(post)
+                    }
+                })
+                if(posts==null){
                     navigate("/")
                 }
             }else{
-                console.log(posts);
+                // console.log(posts);
                 appwriteService.getPost(slug)
                 .then((post) => {
                     // console.log(post);
@@ -57,6 +62,7 @@ export default function Post() {
         });
     };
 
+    console.log(post);
     return post ? (
         <div className="py-8">
             <Container>

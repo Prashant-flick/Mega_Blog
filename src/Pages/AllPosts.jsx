@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 function AllPosts() {
     const [posts, setPosts] = useState([])
-    const post = useSelector((state) => state.dataRecuder.data)
+    const post = useSelector((state) => state.dataReducer.data)
 
     React.useEffect(() => {
         if(post && post.length > 0){
