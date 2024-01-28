@@ -8,7 +8,7 @@ function AllPosts() {
     const post = useSelector((state) => state.dataRecuder.data)
 
     React.useEffect(() => {
-        if(post){
+        if(post && post.length > 0){
             setPosts(post)
         }else{
             appwriteService.getPosts([])
