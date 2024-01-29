@@ -21,6 +21,8 @@ function PostForm({post}) {
         }
     })
 
+    console.log(getValues("content"));
+
     console.log(post);
 
     const submit = async(data) => {
@@ -60,7 +62,7 @@ function PostForm({post}) {
                 }
                 )
                 if(dbPost){
-                    console.log(dbPost);
+                    // console.log(dbPost);
                     dispatch(add(dbPost))
                     navigate(`/post/${dbPost.$id}`)
                 }

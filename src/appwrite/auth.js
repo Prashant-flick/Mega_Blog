@@ -32,7 +32,7 @@ class Authservice {
     async login ({email, password}){
         try {
             const Login = await this.account.createEmailSession(email, password)
-            console.log(Login);
+            // console.log(Login);
             return Login
         } catch (error) {
             throw error

@@ -37,7 +37,7 @@ function PostCard({
   //     }
   //   }
   // }
-  console.log(featuredImage);
+  // console.log(featuredImage);
 
   return (
     <Link to={`/post/${$id}`}>

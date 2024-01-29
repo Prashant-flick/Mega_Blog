@@ -11,7 +11,7 @@ export default function Post() {
     const posts = useSelector((state) => state.dataReducer.data)
     const { slug } = useParams();
     const navigate = useNavigate();
-    console.log(post);
+    // console.log(post);
     // console.log(post.featuredImage);
     // console.log(slug);
 
@@ -62,7 +62,7 @@ export default function Post() {
         });
     };
 
-    console.log(post);
+    // console.log(post);
     return post ? (
         <div className="py-8">
             <Container>
