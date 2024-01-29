@@ -35,7 +35,7 @@ export default function Post() {
                     navigate("/")
                 }
             }else{
-                // console.log(posts);
+                console.log(posts);
                 appwriteService.getPost(slug)
                 .then((post) => {
                     // console.log(post);
