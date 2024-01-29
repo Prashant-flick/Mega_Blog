@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React,{useState} from 'react'
 import appwriteService from '../appwrite/config'
 import {Link, useParams} from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -9,35 +9,35 @@ function PostCard({
   featuredImage,
   title
 }) {
-  if(!featuredImage){
-    const [post, setPost] = React.useState(null)
-    const navigate = useNavigate()
-    const posts = useSelector((state) => state.dataReducer.data)
-    const slug = useParams()
-    if(slug){
-      if(posts && posts.length > 0){
-        posts.map((post) => {
-          if(post.title === slug){
-            setPost(post)
-          }
-        })
-      }else{
-        appwriteService.getPost(slug)
-        .then((post) => {
-          if(post){
-            setPost(post)
-          }else{
-            navigate("/")
-          }
-        })
-      }
-      featuredImage=post.featuredImage;
-      if(!featuredImage){
-        navigate("/")
-      }
-    }
-  }
-  
+  // if(!featuredImage){
+  //   const [post, setPost] = useState(null)
+  //   const navigate = useNavigate()
+  //   const posts = useSelector((state) => state.dataReducer.data)
+  //   const slug = useParams()
+  //   if(slug){
+  //     if(posts && posts.length > 0){
+  //       posts.map((post) => {
+  //         if(post.title === slug){
+  //           setPost(post)
+  //         }
+  //       })
+  //     }else{
+  //       appwriteService.getPost(slug)
+  //       .then((post) => {
+  //         if(post){
+  //           setPost(post)
+  //         }else{
+  //           navigate("/")
+  //         }
+  //       })
+  //     }
+  //     featuredImage=post.featuredImage;
+  //     if(!featuredImage){
+  //       navigate("/")
+  //     }
+  //   }
+  // }
+  console.log(featuredImage);
 
   return (
     <Link to={`/post/${$id}`}>

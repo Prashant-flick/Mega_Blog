@@ -14,6 +14,16 @@ function App() {
     const user = useSelector((state) => state.userData)
     // console.log(user);
 
+    //deleting all the datas in localstorage when the window is closed
+    window.addEventListener('beforeunload', function (event) {
+      // Code to execute before the window is closed or navigated away
+      // You can use this to show a confirmation dialog, save data, etc.
+  
+      // For example, you might want to display a custom message
+      this.localStorage.removeItem("data");
+      this.localStorage.removeItem("auth");
+    });
+
     useEffect(()=>{
       // console.log("here");
       const auth = JSON.parse(localStorage.getItem("auth"))

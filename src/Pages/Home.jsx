@@ -20,9 +20,10 @@ function Home() {
                 // console.log("here");
                 appwriteService.getPosts()
                 .then((posts) => {
-                    console.log(posts.documents);
+                    // console.log(posts.documents);
                     if(posts){
                         setPosts(posts.documents)
+                        localStorage.setItem("data", JSON.stringify(posts.documents))
                     }
                 })
             }

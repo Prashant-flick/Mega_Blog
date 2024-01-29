@@ -9,8 +9,10 @@ const databaseSlice = createSlice({
     initialState,
     reducers: {
         add: (state, action) => {
-            // console.log(action.payload);
-            state.data.push(action.payload)
+            console.log(action.payload);
+            state = JSON.parse(localStorage.getItem("data"))
+            console.log(state);
+            state.push(action.payload)
             // console.log(state);
             localStorage.setItem("data", JSON.stringify(state))
         },
